@@ -34,14 +34,22 @@ _core.default.page({
   },
   computed: {
     disabled: function disabled() {
-      return this.name && /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(this.mobile);
+      return Boolean(this.name && /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(this.mobile));
     }
   },
   created: function created() {
     wx.cloud.init();
   },
   methods: {
-    handleClick: function handleClick() {
+    submit: function submit() {
+      if (!this.disabled) {
+        wx.showToast({
+          icon: 'none',
+          title: '请填写完整'
+        });
+        return;
+      }
+
       var db = wx.cloud.database({
         env: 'colorbox-5ivf1'
       });
@@ -77,28 +85,28 @@ _core.default.page({
       this.sex = event.$wx.detail;
     }
   }
-}, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"24-266":["tap"],"24-267":["change"],"24-268":["tap"],"24-269":["cancel","confirm","change"]}}, handlers: {'24-266': {"tap": function proxy () {
+}, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"24-42":["tap"],"24-43":["change"],"24-44":["tap"],"24-45":["cancel","confirm","change"]}}, handlers: {'24-42': {"tap": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
         _vm.showSelectAge($event)
       })();
     
-  }},'24-267': {"change": function proxy () {
+  }},'24-43': {"change": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
         _vm.onChange($event)
       })();
     
-  }},'24-268': {"tap": function proxy () {
+  }},'24-44': {"tap": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
-        _vm.handleClick($event)
+        _vm.submit($event)
       })();
     
-  }},'24-269': {"cancel": function proxy () {
+  }},'24-45': {"cancel": function proxy () {
     
     var _vm=this;
       return (function () {
@@ -119,7 +127,7 @@ _core.default.page({
         _vm.selectAge($event)
       })();
     
-  }}}, models: {'9': {
+  }}}, models: {'21': {
       type: "input",
       expr: "name",
       handler: function set ($v) {
@@ -127,7 +135,7 @@ _core.default.page({
         _vm.name = $v;
       
     }
-    },'10': {
+    },'22': {
       type: "input",
       expr: "mobile",
       handler: function set ($v) {
@@ -135,7 +143,7 @@ _core.default.page({
         _vm.mobile = $v;
       
     }
-    },'11': {
+    },'23': {
       type: "input",
       expr: "address",
       handler: function set ($v) {

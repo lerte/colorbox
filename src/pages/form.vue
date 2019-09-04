@@ -80,7 +80,7 @@
       </div>                    
     </div>
 
-    <van-button block="true" style="width: 100%;padding:15px 0;" type="primary" @tap="handleClick">提交</van-button>
+    <van-button block="true" style="width: 100%;padding:15px 0;" type="primary" @click="submit">提交</van-button>
 
     <div style="font-size:11px;">——— 一个用艺术激发孩子的无限可能的神奇盒子 ———</div>
     <van-popup show="{{ show }}" position="bottom">
@@ -137,14 +137,21 @@ wepy.page({
   },
   computed: {
     disabled(){
-      return this.name && /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(this.mobile)
+      return Boolean(this.name && /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(this.mobile))
     }
   },
   created(){
     wx.cloud.init()
   },
   methods: {
-    handleClick() {
+    submit() {
+      if(!this.disabled){
+        wx.showToast({
+          icon: 'none',
+          title: '请填写完整'
+        })
+        return
+      }
       const db = wx.cloud.database({
         env: 'colorbox-5ivf1'
       })
