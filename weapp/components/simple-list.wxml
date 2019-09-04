@@ -1,0 +1,11 @@
+
+<view>
+  <view wx:if="{{ loading }}">Loading...</view>
+  <view wx:else>
+    <view wx:for="{{ items }}" wx:for-index="index" wx:for-item="item" wx:key="index" key="{{ item.objectID }}">
+      <navigator url="{{ item.url }}" class="hover:tw-underline">
+        {{ item.title }}
+      </navigator>
+    </view>
+  </view>
+</view>

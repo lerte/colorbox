@@ -1,0 +1,11 @@
+{
+    "pages": [
+        "pages/form"
+    ],
+    "window": {
+        "navigationBarTitleText": "彩色盒子美术馆",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+    }
+}

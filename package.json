@@ -1,0 +1,53 @@
+{
+  "name": "colorbox",
+  "version": "0.0.2",
+  "description": "A WePY project",
+  "main": "weapp/app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/wepy build --no-cache --watch",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/wepy build --no-cache",
+    "clean": "rm -rf weapp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "wepy": {
+    "module-a": false,
+    "./src/components/list": "./src/components/wepy-list.wpy"
+  },
+  "author": "Lerte Smith <lerte@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@wepy/core": "^2.0.0-alpha.9",
+    "@wepy/use-promisify": "^2.0.0",
+    "@wepy/x": "^2.0.2",
+    "lodash": "^4.17.15",
+    "vant-weapp": "^0.5.20"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "@wepy/babel-plugin-import-regenerator": "0.0.2",
+    "@wepy/cli": "^2.0.0-alpha.10",
+    "@wepy/compiler-babel": "^2.0.3",
+    "@wepy/compiler-postcss": "^2.0.0",
+    "@wepy/compiler-sass": "^2.0.1",
+    "@wepy/plugin-define": "^2.0.1",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.2.2",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.18.2",
+    "tailwindcss": "^1.1.2"
+  },
+  "browserslist": [
+    "iOS 12",
+    "Android 67"
+  ]
+}

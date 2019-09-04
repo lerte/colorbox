@@ -1,0 +1,2 @@
+.header{width:100%;margin:20rpx;border-radius:6px;box-shadow:0px 2px 8px 3px #ababab}.header .logo{margin:20rpx;width:60rpx;height:60rpx;border-radius:50%}.form-group>input{border:1rpx solid #ababab;border-radius:6px;padding:18rpx;margin:10rpx 0}.form-group .van-cell{border:1rpx solid #ababab;border-radius:6px;padding:18rpx;margin:10rpx 0}
+

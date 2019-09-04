@@ -1,0 +1,15 @@
+{
+    "navigationBarTitleText": "彩色盒子美术馆",
+    "component": true,
+    "usingComponents": {
+        "van-row": "../$vendor/vant-weapp/dist/row/index",
+        "van-col": "../$vendor/vant-weapp/dist/col/index",
+        "van-field": "../$vendor/vant-weapp/dist/field/index",
+        "van-radio": "../$vendor/vant-weapp/dist/radio/index",
+        "van-radio-group": "../$vendor/vant-weapp/dist/radio-group/index",
+        "van-icon": "../$vendor/vant-weapp/dist/icon/index",
+        "van-button": "../$vendor/vant-weapp/dist/button/index",
+        "van-picker": "../$vendor/vant-weapp/dist/picker/index",
+        "van-popup": "../$vendor/vant-weapp/dist/popup/index"
+    }
+}
