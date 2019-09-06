@@ -4,7 +4,7 @@ var _core = _interopRequireDefault(require('vendor.js')(0));
 
 var _usePromisify = _interopRequireDefault(require('vendor.js')(1));
 
-var _x = _interopRequireDefault(require('vendor.js')(7));
+var _x = _interopRequireDefault(require('vendor.js')(9));
 
 var _services = require('services/index.js');
 
@@ -20,4 +20,4 @@ _core.default.app({
   hooks: {},
   onLaunch: function onLaunch() {},
   methods: {}
-}, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} }, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} });
+}, {info: {"noPromiseAPI":["createSelectorQuery"]}, handlers: {}, models: {} });

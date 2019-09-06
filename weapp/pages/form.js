@@ -41,6 +41,22 @@ _core.default.page({
     wx.cloud.init();
   },
   methods: {
+    goMap: function goMap() {
+      wx.getLocation({
+        type: 'gcj02',
+        //返回可以用于wx.openLocation的经纬度
+        success: function success(res) {
+          var latitude = res.latitude;
+          var longitude = res.longitude;
+          wx.openLocation({
+            latitude: 22.503866519308442,
+            longitude: 113.9168517730026,
+            name: "彩色盒子美术馆",
+            scale: 20
+          });
+        }
+      });
+    },
     submit: function submit() {
       if (!this.disabled) {
         wx.showToast({
@@ -62,14 +78,15 @@ _core.default.page({
           address: this.address
         },
         success: function success(res) {
-          wx.showToast({
-            title: '提交成功'
+          wx.showModal({
+            title: '提交成功',
+            showCancel: false
           });
         },
         fail: function fail(err) {
-          wx.showToast({
-            icon: 'none',
-            title: '提交失败'
+          wx.showModal({
+            title: '提交失败',
+            showCancel: false
           });
           console.error('[数据库] [新增记录] 失败：', err);
         }
@@ -85,28 +102,35 @@ _core.default.page({
       this.sex = event.$wx.detail;
     }
   }
-}, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"24-42":["tap"],"24-43":["change"],"24-44":["tap"],"24-45":["cancel","confirm","change"]}}, handlers: {'24-42': {"tap": function proxy () {
+}, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"25-38":["tap"],"25-39":["change"],"25-40":["tap"],"25-41":["cancel","confirm","change"]}}, handlers: {'25-37': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.goMap($event)
+      })();
+    
+  }},'25-38': {"tap": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
         _vm.showSelectAge($event)
       })();
     
-  }},'24-43': {"change": function proxy () {
+  }},'25-39': {"change": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
         _vm.onChange($event)
       })();
     
-  }},'24-44': {"tap": function proxy () {
+  }},'25-40': {"tap": function proxy () {
     var $event = arguments[arguments.length - 1];
     var _vm=this;
       return (function () {
         _vm.submit($event)
       })();
     
-  }},'24-45': {"cancel": function proxy () {
+  }},'25-41': {"cancel": function proxy () {
     
     var _vm=this;
       return (function () {
@@ -127,7 +151,7 @@ _core.default.page({
         _vm.selectAge($event)
       })();
     
-  }}}, models: {'21': {
+  }}}, models: {'18': {
       type: "input",
       expr: "name",
       handler: function set ($v) {
@@ -135,7 +159,7 @@ _core.default.page({
         _vm.name = $v;
       
     }
-    },'22': {
+    },'19': {
       type: "input",
       expr: "mobile",
       handler: function set ($v) {
@@ -143,7 +167,153 @@ _core.default.page({
         _vm.mobile = $v;
       
     }
-    },'23': {
+    },'20': {
+      type: "input",
+      expr: "address",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.address = $v;
+      
+    }
+    }} }, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"25-38":["tap"],"25-39":["change"],"25-40":["tap"],"25-41":["cancel","confirm","change"]}}, handlers: {'25-37': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.goMap($event)
+      })();
+    
+  }},'25-38': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.showSelectAge($event)
+      })();
+    
+  }},'25-39': {"change": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.onChange($event)
+      })();
+    
+  }},'25-40': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.submit($event)
+      })();
+    
+  }},'25-41': {"cancel": function proxy () {
+    
+    var _vm=this;
+      return (function () {
+        _vm.show = false
+      })();
+    
+  }, "confirm": function proxy () {
+    
+    var _vm=this;
+      return (function () {
+        _vm.show = false
+      })();
+    
+  }, "change": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.selectAge($event)
+      })();
+    
+  }}}, models: {'18': {
+      type: "input",
+      expr: "name",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.name = $v;
+      
+    }
+    },'19': {
+      type: "input",
+      expr: "mobile",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.mobile = $v;
+      
+    }
+    },'20': {
+      type: "input",
+      expr: "address",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.address = $v;
+      
+    }
+    }} }, {info: {"components":{"van-row":{"path":"..\\$vendor\\vant-weapp\\dist\\row\\index"},"van-col":{"path":"..\\$vendor\\vant-weapp\\dist\\col\\index"},"van-field":{"path":"..\\$vendor\\vant-weapp\\dist\\field\\index"},"van-radio":{"path":"..\\$vendor\\vant-weapp\\dist\\radio\\index"},"van-radio-group":{"path":"..\\$vendor\\vant-weapp\\dist\\radio-group\\index"},"van-icon":{"path":"..\\$vendor\\vant-weapp\\dist\\icon\\index"},"van-button":{"path":"..\\$vendor\\vant-weapp\\dist\\button\\index"},"van-picker":{"path":"..\\$vendor\\vant-weapp\\dist\\picker\\index"},"van-popup":{"path":"..\\$vendor\\vant-weapp\\dist\\popup\\index"}},"on":{"25-38":["tap"],"25-39":["change"],"25-40":["tap"],"25-41":["cancel","confirm","change"]}}, handlers: {'25-37': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.goMap($event)
+      })();
+    
+  }},'25-38': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.showSelectAge($event)
+      })();
+    
+  }},'25-39': {"change": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.onChange($event)
+      })();
+    
+  }},'25-40': {"tap": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.submit($event)
+      })();
+    
+  }},'25-41': {"cancel": function proxy () {
+    
+    var _vm=this;
+      return (function () {
+        _vm.show = false
+      })();
+    
+  }, "confirm": function proxy () {
+    
+    var _vm=this;
+      return (function () {
+        _vm.show = false
+      })();
+    
+  }, "change": function proxy () {
+    var $event = arguments[arguments.length - 1];
+    var _vm=this;
+      return (function () {
+        _vm.selectAge($event)
+      })();
+    
+  }}}, models: {'18': {
+      type: "input",
+      expr: "name",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.name = $v;
+      
+    }
+    },'19': {
+      type: "input",
+      expr: "mobile",
+      handler: function set ($v) {
+      var _vm=this;
+        _vm.mobile = $v;
+      
+    }
+    },'20': {
       type: "input",
       expr: "address",
       handler: function set ($v) {

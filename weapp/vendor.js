@@ -3146,6 +3146,86 @@ exports.default = Toast;
 
 
 /***** module 6 start *****/
+/***** C:\Users\Administrator\Desktop\colorbox\node_modules\lodash\_objectToString.js *****/
+function(module, exports, __wepy_require) {/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+},/***** module 6 end *****/
+
+
+/***** module 7 start *****/
+/***** C:\Users\Administrator\Desktop\colorbox\node_modules\lodash\_getRawTag.js *****/
+function(module, exports, __wepy_require) {var Symbol = __wepy_require(16);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+},/***** module 7 end *****/
+
+
+/***** module 8 start *****/
 /***** C:\Users\Administrator\Desktop\colorbox\node_modules\vuex\dist\vuex.common.js *****/
 function(module, exports, __wepy_require) {/**
  * vuex v3.1.1
@@ -4159,16 +4239,16 @@ var index = {
 
 module.exports = index;
 
-},/***** module 6 end *****/
+},/***** module 8 end *****/
 
 
-/***** module 7 start *****/
+/***** module 9 start *****/
 /***** C:\Users\Administrator\Desktop\colorbox\node_modules\@wepy\x\dist\index.js *****/
 function(module, exports, __wepy_require) {'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var vuex = __wepy_require(6);
+var vuex = __wepy_require(8);
 
 function wepyInstall (wepy) {
   vuex.install(wepy);
@@ -4211,86 +4291,6 @@ exports.mapActions = vuex.mapActions;
 exports.createNamespacedHelpers = vuex.createNamespacedHelpers;
 exports.default = index;
 exports.install = wepyInstall;
-
-},/***** module 7 end *****/
-
-
-/***** module 8 start *****/
-/***** C:\Users\Administrator\Desktop\colorbox\node_modules\lodash\_getRawTag.js *****/
-function(module, exports, __wepy_require) {var Symbol = __wepy_require(16);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/** Built-in value references. */
-var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/**
- * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
- */
-function getRawTag(value) {
-  var isOwn = hasOwnProperty.call(value, symToStringTag),
-      tag = value[symToStringTag];
-
-  try {
-    value[symToStringTag] = undefined;
-    var unmasked = true;
-  } catch (e) {}
-
-  var result = nativeObjectToString.call(value);
-  if (unmasked) {
-    if (isOwn) {
-      value[symToStringTag] = tag;
-    } else {
-      delete value[symToStringTag];
-    }
-  }
-  return result;
-}
-
-module.exports = getRawTag;
-
-},/***** module 8 end *****/
-
-
-/***** module 9 start *****/
-/***** C:\Users\Administrator\Desktop\colorbox\node_modules\lodash\_objectToString.js *****/
-function(module, exports, __wepy_require) {/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/**
- * Converts `value` to a string using `Object.prototype.toString`.
- *
- * @private
- * @param {*} value The value to convert.
- * @returns {string} Returns the converted string.
- */
-function objectToString(value) {
-  return nativeObjectToString.call(value);
-}
-
-module.exports = objectToString;
 
 },/***** module 9 end *****/
 
@@ -5142,8 +5142,8 @@ module.exports = Symbol;
 /***** module 17 start *****/
 /***** C:\Users\Administrator\Desktop\colorbox\node_modules\lodash\_baseGetTag.js *****/
 function(module, exports, __wepy_require) {var Symbol = __wepy_require(16),
-    getRawTag = __wepy_require(8),
-    objectToString = __wepy_require(9);
+    getRawTag = __wepy_require(7),
+    objectToString = __wepy_require(6);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',

@@ -1,6 +1,6 @@
 
 <view class="container">
-  <view class="header">
+  <view data-wpy-evt="25-37" bindtap="_proxy" class="header">
     <van-row bind_init="_initComponent">
       <van-col bind_init="_initComponent" span="4">
         <image src="/static/images/logo.png" class="logo">
@@ -15,7 +15,7 @@
       </van-col>
       <van-col bind_init="_initComponent" offset="2" span="20">
         <view style="padding-bottom: 20rpx;">
-          深圳市南山区工业八路280号 壹栈林下 一层A号商铺（燕巢咖妃屋对面）
+          深圳市南山区工业八路280号 壹栈林下 一层A号商铺（燕巢咖啡屋对面）
         </view>
       </van-col>        
     </van-row>
@@ -24,33 +24,33 @@
   <view style="width: 100%;" class="form">
     <view class="form-group">
       <label for="childName">*孩子姓名</label>
-      <input id="childName" type="text" required="" value="{{ name }}" bindinput="_proxy" data-model-id="21" placeholder="请输入您孩子的姓名"></input>
+      <input id="childName" type="text" required="" value="{{ name }}" bindinput="_proxy" data-model-id="18" placeholder="请输入您孩子的姓名"></input>
     </view>
     <view class="form-group">
       <label for="cellphone">*手机号</label>
-      <input id="cellphone" type="number" required="" value="{{ mobile }}" bindinput="_proxy" data-model-id="22" placeholder="请输入您的手机号"></input>
+      <input id="cellphone" type="number" required="" value="{{ mobile }}" bindinput="_proxy" data-model-id="19" placeholder="请输入您的手机号"></input>
     </view>
     <view class="form-group">
       <label for="childAge">孩子年龄</label>
-      <van-field bind_init="_initComponent" size="large" readonly="true" value="{{ age }}" icon="arrow-down" data-wpy-evt="24-42" bindtap="_proxy"></van-field>
+      <van-field bind_init="_initComponent" size="large" readonly="true" value="{{ age }}" icon="arrow-down" data-wpy-evt="25-38" bindtap="_proxy"></van-field>
     </view>
     <view class="form-group">
       <label for="childSex">孩子性别</label>
-      <van-radio-group bind_init="_initComponent" value="{{ sex }}" data-wpy-evt="24-43" bindchange="_proxy">
+      <van-radio-group bind_init="_initComponent" value="{{ sex }}" data-wpy-evt="25-39" bindchange="_proxy">
         <van-radio bind_init="_initComponent" name="男">男</van-radio>
         <van-radio bind_init="_initComponent" name="女">女</van-radio>
       </van-radio-group>
     </view>
     <view class="form-group">
       <label for="address">地址</label>
-      <input type="text" value="{{ address }}" bindinput="_proxy" data-model-id="23" placeholder="请输入您所在的地址"></input>
+      <input type="text" value="{{ address }}" bindinput="_proxy" data-model-id="20" placeholder="请输入您所在的地址"></input>
     </view>                    
   </view>
 
-  <van-button bind_init="_initComponent" block="true" type="primary" data-wpy-evt="24-44" bindtap="_proxy" style="width: 100%;padding:15px 0;">提交</van-button>
+  <van-button bind_init="_initComponent" block="true" type="primary" data-wpy-evt="25-40" bindtap="_proxy" style="width: 100%;padding:15px 0;">提交</van-button>
 
   <view style="font-size:11px;">——— 一个用艺术激发孩子的无限可能的神奇盒子 ———</view>
   <van-popup bind_init="_initComponent" show="{{ show }}" position="bottom">
-    <van-picker bind_init="_initComponent" show-toolbar="true" columns="{{ columns }}" default-index="{{ 2 }}" data-wpy-evt="24-45" bindcancel="_proxy" bindconfirm="_proxy" bindchange="_proxy"></van-picker>
+    <van-picker bind_init="_initComponent" show-toolbar="true" columns="{{ columns }}" default-index="{{ 2 }}" data-wpy-evt="25-41" bindcancel="_proxy" bindconfirm="_proxy" bindchange="_proxy"></van-picker>
   </van-popup>    
 </view>

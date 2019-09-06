@@ -27,7 +27,7 @@
 
 <template>
   <div class="container">
-    <div class="header">
+    <div class="header" @click="goMap">
       <van-row>
         <van-col span="4">
           <img class="logo" src="/static/images/logo.png">
@@ -42,7 +42,7 @@
         </van-col>
         <van-col offset="2" span="20">
           <div style="padding-bottom: 20rpx;">
-            深圳市南山区工业八路280号 壹栈林下 一层A号商铺（燕巢咖妃屋对面）
+            深圳市南山区工业八路280号 壹栈林下 一层A号商铺（燕巢咖啡屋对面）
           </div>
         </van-col>        
       </van-row>
@@ -144,6 +144,21 @@ wepy.page({
     wx.cloud.init()
   },
   methods: {
+    goMap(){
+    wx.getLocation({
+    type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+    success: function(res) {
+      var latitude = res.latitude
+      var longitude = res.longitude
+      wx.openLocation({
+        latitude: 22.503866519308442,
+        longitude: 113.9168517730026,
+        name: "彩色盒子美术馆",
+        scale: 20
+      })
+      }
+    }) 
+    },
     submit() {
       if(!this.disabled){
         wx.showToast({
@@ -164,14 +179,15 @@ wepy.page({
           address: this.address
         },
         success(res){
-          wx.showToast({
-            title: '提交成功'
+          wx.showModal({
+            title: '提交成功',
+            showCancel: false
           })
         },
         fail(err){
-          wx.showToast({
-            icon: 'none',
-            title: '提交失败'
+          wx.showModal({
+            title: '提交失败',
+            showCancel: false
           })
           console.error('[数据库] [新增记录] 失败：', err)
         }

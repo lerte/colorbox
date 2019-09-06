@@ -1,8 +1,14 @@
 <config>
 {
   pages: [
-    'pages/form'
+    'pages/form',
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "导航到彩色盒子美术馆"
+    }
+  },
+  style: "v2",
   window: {
     navigationBarTitleText: '彩色盒子美术馆',
     backgroundTextStyle: 'dark',
