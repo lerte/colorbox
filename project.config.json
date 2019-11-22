@@ -1,16 +1,13 @@
 {
-	"description": "A WePY project",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false
-	},
-	"compileType": "miniprogram",
-	"appid": "wx00b9e8362cbdcd08",
-	"projectname": "colorbox",
-	"miniprogramRoot": "weapp/",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {}
+  "miniprogramRoot": "./dist",
+  "projectname": "colorbox",
+  "description": "",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
 }
